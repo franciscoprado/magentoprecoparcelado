@@ -1,0 +1,43 @@
+<?php
+$helper = Mage::helper('franciscoprado_precoparcelado');
+$isActive = $helper->isModuleEnabled();
+$showTable = $helper->showTable();
+
+if ($isActive && $showTable):
+    $maxNumberMonths = $helper->getMaxNumberMonths();
+    $minParcelValue = $helper->getMinParcelValue();
+    $interest = $helper->getInterest();
+    $productPrice = Mage::registry('current_product')->getFinalPrice();
+    ?>
+    <table class="precoparcelado-table">
+        <thead>
+    	<tr>
+    	    <th colspan="2"><?php echo $helper->getTableTitle() ?></th>
+    	</tr>
+        </thead>
+        <tbody>
+    <?php
+    if ($productPrice > $minParcelValue):
+	for ($i = 2; $i <= $maxNumberMonths; $i++):
+
+	    $parcel = $helper->getParcelsValue($productPrice, $interest, $i);
+
+	    $tableText = str_replace('{parcelas}', $i, $helper->getTableText());
+	    $parcelPrice = Mage::helper('core')->currency($parcel, true, false);
+
+	    if ($parcel >= $minParcelValue):
+		?>
+			<tr>
+			    <td><?php echo $tableText ?></td>
+			    <td><?php echo $parcelPrice ?></td>
+			<tr>
+		<?php
+	    endif;
+	endfor;
+    endif;
+    ?>
+        </tbody>
+    </table>
+    <?php
+
+endif;

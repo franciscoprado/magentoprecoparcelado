@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <FranciscoPrado_PrecoParcelado>
+            <version>2.0.0.2</version>
+        </FranciscoPrado_PrecoParcelado>
+    </modules>
+    <global>
+        <models>
+            <franciscoprado_precoparcelado>
+                <class>FranciscoPrado_PrecoParcelado_Model</class>
+            </franciscoprado_precoparcelado>
+        </models>
+        <helpers>
+            <franciscoprado_precoparcelado>
+                <class>FranciscoPrado_PrecoParcelado_Helper</class>
+            </franciscoprado_precoparcelado>
+        </helpers>       
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <franciscoprado_precoparcelado module="franciscoprado_precoparcelado">
+                    <file>franciscoprado_precoparcelado.xml</file>
+                </franciscoprado_precoparcelado>
+            </updates>
+        </layout>
+        <routers>
+            <franciscoprado_precoparcelado>
+                <use>standard</use>
+                <args>
+                    <module>FranciscoPrado_PrecoParcelado</module>
+                    <frontName>precoparcelado</frontName>
+                </args>
+            </franciscoprado_precoparcelado>
+        </routers>
+        <translate>
+            <modules>
+                <FranciscoPrado_PrecoParcelado>
+                    <files>
+                        <default>FranciscoPrado_PrecoParcelado.csv</default>
+                    </files>
+                </FranciscoPrado_PrecoParcelado>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <FranciscoPrado_PrecoParcelado>
+                    <files>
+                        <default>FranciscoPrado_PrecoParcelado.csv</default>
+                    </files>
+                </FranciscoPrado_PrecoParcelado>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <sales>
+            <franciscoprado_precoparcelado>
+                <active>1</active>
+                <show_table>0</show_table>
+                <table_title>Valor das Parcelas</table_title>
+                <show_price_in_parcels>1</show_price_in_parcels>
+                <min_quote_value>50</min_quote_value>
+                <max_number_months>12</max_number_months>
+                <interest_value>1</interest_value>
+                <text_pattern>ou em {parcelas} vezes de {preco}</text_pattern>
+                <text_table_pattern>{parcelas}x de</text_table_pattern>
+		<add_jquery>0</add_jquery>
+            </franciscoprado_precoparcelado> 
+        </sales>
+    </default>
+</config>

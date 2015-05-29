@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <sales module="sales">
+            <groups>
+                <franciscoprado_precoparcelado>
+                    <label>Preço Parcelado</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active>
+                            <label>Enable</label>
+                            <sort_order>10</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <show_price_in_parcels>
+                            <label>Show Price In Parcels</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                Ativa a exibição do texto quando inserido no template, usando como base o valor do campo Padrão de Texto.
+                            </comment>
+                        </show_price_in_parcels>
+                        <show_table>
+                            <label>Show Parcel Table</label>
+                            <sort_order>30</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                Exibirá uma tabela com a projeção das parcelas, mês a mês, ao lado do produto.
+                            </comment>
+                        </show_table>
+                        <table_title>
+                            <label>Table Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </table_title>
+                        <min_quote_value>
+                            <label>Minimal Value of the Parcel</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-greater-than-zero</validate>
+                        </min_quote_value>
+                        <max_number_months>
+                            <label>Maximum Number of Months</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-greater-than-zero</validate>
+                        </max_number_months>
+                        <interest_value>
+                            <label>Interest Value</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-zero-or-greater</validate>
+                        </interest_value>
+                        <text_pattern>
+                            <label>Text Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                Insira {parcelas} para exibir o número de parcelas, e {preco} para exibir o seu valor.  
+                            </comment>
+                        </text_pattern>
+                        <text_table_pattern>
+                            <label>Table Text Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                O {parcelas} é necessário e substituirá pela quantidade de parcelas na apresentação.
+                            </comment>
+                        </text_table_pattern>
+			<add_jquery>
+                            <label>Add jQuery?</label>
+                            <sort_order>110</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                Selecione Sim se o seu projeto/tema não usa jQuery - pois para cálculo de preço parcelado de produtos configurados ele será usado. Caso já tenha, selecione Não.
+                            </comment>
+                        </add_jquery>
+                    </fields>
+                </franciscoprado_precoparcelado>
+            </groups>
+        </sales>
+    </sections>
+</config>
