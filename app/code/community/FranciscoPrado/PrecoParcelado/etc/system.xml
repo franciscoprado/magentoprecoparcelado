@@ -78,6 +78,18 @@
                             <show_in_store>0</show_in_store>
                             <validate>validate-zero-or-greater</validate>
                         </interest_value>
+                        <interest_from>
+                            <label>Interest From Parcel</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-zero-or-greater</validate>
+                            <comment>
+                                Os juros serão calculados a partir de qual parcela/mês?
+                            </comment>
+                        </interest_from>
                         <text_pattern>
                             <label>Text Pattern</label>
                             <frontend_type>text</frontend_type>
@@ -100,6 +112,45 @@
                                 O {parcelas} é necessário e substituirá pela quantidade de parcelas na apresentação.
                             </comment>
                         </text_table_pattern>
+                        <text_with_interest>
+                            <label>Text With Interest</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </text_with_interest>
+                        <text_without_interest>
+                            <label>Text Without Interest</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </text_without_interest>
+                        <show_single_parcel_text>
+                            <label>Show Single Parcel In Table?</label>
+                            <sort_order>101</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                Selecione Sim se deseja exibir o preço à vista na tabela. Caso Não, a tabela exibirá a partir da segunda parcela.
+                            </comment>
+                        </show_single_parcel_text>
+                        <text_table_single_price>
+                            <label>Table Text Single Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>102</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                O texto para parcela única (à vista) caso exibido.
+                            </comment>
+                        </text_table_single_price>
 			<add_jquery>
                             <label>Add jQuery?</label>
                             <sort_order>110</sort_order>

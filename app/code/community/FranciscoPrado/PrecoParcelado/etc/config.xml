@@ -2,7 +2,7 @@
 <config>
     <modules>
         <FranciscoPrado_PrecoParcelado>
-            <version>2.0.0.2</version>
+            <version>3.0.0.0</version>
         </FranciscoPrado_PrecoParcelado>
     </modules>
     <global>
@@ -65,8 +65,13 @@
                 <min_quote_value>50</min_quote_value>
                 <max_number_months>12</max_number_months>
                 <interest_value>1</interest_value>
+                <interest_from>0</interest_from>
                 <text_pattern>ou em {parcelas} vezes de {preco}</text_pattern>
                 <text_table_pattern>{parcelas}x de</text_table_pattern>
+                <text_with_interest></text_with_interest>
+                <text_without_interest> Sem Juros</text_without_interest>
+                <show_single_parcel_text>0</show_single_parcel_text>
+                <text_table_single_price>à vista</text_table_single_price>
 		<add_jquery>0</add_jquery>
             </franciscoprado_precoparcelado> 
         </sales>

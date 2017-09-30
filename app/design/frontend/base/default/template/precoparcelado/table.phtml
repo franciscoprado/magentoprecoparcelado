@@ -9,35 +9,55 @@ if ($isActive && $showTable):
     $interest = $helper->getInterest();
     $productPrice = Mage::registry('current_product')->getFinalPrice();
     ?>
+    <?php
+    $parcel = $helper->getParcelsValue($productPrice, $interest, 2);
+    
+    if ($parcel > $minParcelValue):
+    ?>
     <table class="precoparcelado-table">
         <thead>
-    	<tr>
-    	    <th colspan="2"><?php echo $helper->getTableTitle() ?></th>
-    	</tr>
+            <tr>
+                <th colspan="2"><?php echo $helper->getTableTitle() ?></th>
+            </tr>
         </thead>
         <tbody>
-    <?php
-    if ($productPrice > $minParcelValue):
-	for ($i = 2; $i <= $maxNumberMonths; $i++):
+            <?php
+            if ($productPrice > $minParcelValue):
+                for ($i = 1; $i <= $maxNumberMonths; $i++):
 
-	    $parcel = $helper->getParcelsValue($productPrice, $interest, $i);
+                    if (!$helper->showSingleParcelText() && $i == 1)
+                        continue;
 
-	    $tableText = str_replace('{parcelas}', $i, $helper->getTableText());
-	    $parcelPrice = Mage::helper('core')->currency($parcel, true, false);
+                    $parcel = $helper->getParcelsValue($productPrice, $interest, $i);
 
-	    if ($parcel >= $minParcelValue):
-		?>
-			<tr>
-			    <td><?php echo $tableText ?></td>
-			    <td><?php echo $parcelPrice ?></td>
-			<tr>
-		<?php
-	    endif;
-	endfor;
-    endif;
-    ?>
+                    if ($helper->showSingleParcelText() && $i == 1) {
+                        $tableText = $helper->getTextSinglePrice();
+                    } else {
+                        $tableText = str_replace('{parcelas}', $i, $helper->getTableText());
+                    }
+
+                    $parcelPrice = Mage::helper('core')->currency($parcel, true, false);
+                    
+                    if ($i >= $helper->getInterestFrom()) {
+                        $parcelPrice .= $helper->getTextWithInterest();
+                    } else {
+                        $parcelPrice .= $helper->getTextWithoutInterest();
+                    }
+
+                    if ($parcel >= $minParcelValue):
+                        ?>
+                        <tr>
+                            <td><?php echo $tableText ?></td>
+                            <td><?php echo $parcelPrice ?></td>
+                        <tr>
+                            <?php
+                        endif;
+                    endfor;
+                endif;
+                ?>
         </tbody>
     </table>
     <?php
+    endif;
 
 endif;
